@@ -1,9 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="refresh" content="0; url='https://stalkr.net'" />
-  </head>
-  <body>
-    <p><a href="https://stalkr.net/">https://stalkr.net</a>.</p>
-  </body>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stalkr.net</title>
+<style type="text/css">
+body {
+  background-color: #000000;
+  font: 10pt Verdana, Tahoma, sans-serif;
+  color: #C0C0C0;
+}
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+a:hover {
+  color: #C00000;
+}
+table {
+  border-spacing: 10px;
+}
+</style>
+</head>
+<body>
+<p>
+<h1><a href="https://github.com/StalkR">StalkR</a> GitHub projects overview (excludes forks)</h1>
+<table id="list">
+  <tr><td>Build</td><td>Name</td></tr>
+</table>
+</p>
+<script>
+const projects = [
+  {name: "aecache", build: true},
+  {name: "aeletsencrypt", build: true},
+  {name: "chrome-boursorama-login"},
+  {name: "chrome-proxy-switcher"},
+  {name: "discordgo-bridge", build: true},
+  {name: "discordgo-translate", build: true},
+  {name: "dns-reverse-proxy", build: true},
+  {name: "dnssec-analyzer", build: true},
+  {name: "goircbot", build: true},
+  {name: "hsts", build: true},
+  {name: "http-proxy", build: true},
+  {name: "httpcache", build: true},
+  {name: "imdb", build: true},
+  {name: "letsencrypt", build: true},
+  {name: "misc"},
+  {name: "openid", build: true},
+  {name: "socks-proxy", build: true},
+  {name: "Space-Engineers-Link-Steam-Discord"},
+  {name: "Space-Engineers-Map-Viewer"},
+  {name: "Space-Engineers-Stuff"},
+  {name: "SpaceEngineers-DailyNeedsNexus"},
+  {name: "stalkr.github.io"},
+  {name: "winpulse", build: true},
+];
+const list = document.getElementById("list");
+for (const p of projects) {
+  let tr = document.createElement("tr");
+
+  let td = document.createElement("td");
+  tr.appendChild(td);
+
+  let img = document.createElement("img");
+  if (p.build) {
+    img.src = "https://github.com/StalkR/"+p.name+"/actions/workflows/build.yml/badge.svg";
+  } else {
+    img.src = "https://badgen.net/badge/build/none/grey?icon=github";
+  }
+  td.appendChild(img);
+
+  td = document.createElement("td");
+  tr.appendChild(td);
+
+  let a = document.createElement("a");
+  a.href = "https://github.com/StalkR/" + p.name;
+  a.innerText = p.name;
+  td.appendChild(a);
+
+  list.appendChild(tr);
+}
+</script>
+</body>
 </html>
