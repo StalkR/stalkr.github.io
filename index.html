@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>stalkr.net</title>
+<title>GitHub projects overview: StalkR</title>
+<link rel="icon" type="image/x-icon" href="https://github.com/favicon.ico">
 <style type="text/css">
 body {
   background-color: #000000;
@@ -18,16 +19,16 @@ a:hover {
 }
 table {
   border-spacing: 10px;
+  text-align: left;
 }
 </style>
 </head>
 <body>
-<p>
-<h1><a href="https://github.com/StalkR">StalkR</a> GitHub projects overview (excludes forks)</h1>
-<table id="list">
-  <tr><td>Build</td><td>Name</td></tr>
+<h1>GitHub projects overview for <a href="https://github.com/StalkR">@StalkR</a></h1>
+<table>
+  <thead><tr><th>Build</th><th>Name</th></tr></thead>
+  <tbody id="list"></tbody>
 </table>
-</p>
 <script>
 const projects = [
   {name: "aecache", build: true},
